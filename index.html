@@ -167,15 +167,6 @@
         .lang-tag-tr {
             color: #d1b084;
         }
-        .lang-detail {
-            font-size: 11px;
-            font-weight: 400;
-            color: #6b7280;
-            margin-left: 2px;
-        }
-        body.mobile-layout .lang-detail {
-            font-size: 12px;
-        }
         .social-row {
             display: flex;
             gap: 12px;
@@ -651,28 +642,6 @@
         body.mobile-layout .value-tag span {
             font-size: 14px;
         }
-        .toggle-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #1c2030;
-            border: 1px solid #2a3147;
-            color: #ffffff;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 9999;
-            transition: background-color 0.2s ease, border-color 0.2s ease;
-        }
-        .toggle-btn:hover {
-            background-color: #23283c;
-            border-color: #38425f;
-        }
     </style>
 </head>
 <body>
@@ -867,7 +836,7 @@
                 <div class="milestone-item">
                     <div class="milestone-year">2019</div>
                     <div class="milestone-icon-wrapper">
-                        <i class="fa-solid fa-map-location-dot"></i>
+                        <i class="fa-solid fa-map-location-dot" style="color: #b8996c;"></i>
                     </div>
                     <div class="milestone-content">Developed personal Custom Map-Based Job Platform</div>
                 </div>
@@ -905,18 +874,11 @@
 
     </div>
 
-    <button id="layout-toggle" class="toggle-btn">
-        <i class="fa-solid fa-mobile-alt"></i>
-    </button>
-
     <script>
         const canvas = document.getElementById('canvas');
-        const toggleBtn = document.getElementById('layout-toggle');
-        let isManualMode = false;
         let currentMode = '';
 
         function determineLayout() {
-            if (isManualMode) return;
             const isDesktop = window.innerWidth > 1024 && window.innerWidth > window.innerHeight;
             setLayout(isDesktop ? 'desktop' : 'mobile');
         }
@@ -925,11 +887,9 @@
             currentMode = mode;
             if (mode === 'desktop') {
                 document.body.className = 'desktop-layout';
-                toggleBtn.innerHTML = '<i class="fa-solid fa-mobile-alt"></i>';
                 scaleCanvas();
             } else {
                 document.body.className = 'mobile-layout';
-                toggleBtn.innerHTML = '<i class="fa-solid fa-desktop"></i>';
                 resetCanvas();
             }
         }
@@ -960,19 +920,9 @@
             });
         }
 
-        toggleBtn.addEventListener('click', function() {
-            isManualMode = true;
-            if (currentMode === 'desktop') {
-                setLayout('mobile');
-            } else {
-                setLayout('desktop');
-            }
-        });
-
         window.addEventListener('resize', function() {
-            if (!isManualMode) {
-                determineLayout();
-            } else if (currentMode === 'desktop') {
+            determineLayout();
+            if (currentMode === 'desktop') {
                 scaleCanvas();
             }
         });
