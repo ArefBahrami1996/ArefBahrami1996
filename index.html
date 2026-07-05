@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aref Bahrami | Portfolio CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" type="text/css">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0f111a;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #11131c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232838;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2e354a;
+        }
+        body.desktop-layout {
+            overflow: hidden !important;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        body.desktop-layout #canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1920px;
+            height: 1080px;
+            display: grid;
+            grid-template-columns: 400px 980px 400px;
+            grid-template-rows: 150px 550px 240px;
+            gap: 30px;
+            padding: 40px;
+            box-sizing: border-box;
+            transform-origin: center center;
+        }
+        body.mobile-layout {
+            overflow-y: auto !important;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        body.mobile-layout #canvas {
+            position: static;
+            transform: none !important;
+            width: 100%;
+            max-width: 720px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 0;
+        }
+        .panel {
+            background: #161924;
+            border: 1px solid #232838;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 24px;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+        }
+        .panel:hover {
+            border-color: #31384f;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        body.desktop-layout .header-panel {
+            grid-column: 1 / span 3;
+            grid-row: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        body.mobile-layout .header-panel {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+            padding: 24px;
+        }
+        .header-left h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+        body.mobile-layout .header-left h1 {
+            font-size: 28px;
+        }
+        .header-left .subtitle {
+            font-size: 16px;
+            color: #94a3b8;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        body.mobile-layout .header-right {
+            align-items: center;
+            width: 100%;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 14px;
+        }
+        body.mobile-layout .contact-info {
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+        .email-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .email-link:hover {
+            color: #d1b084;
+        }
+        .languages {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #94a3b8;
+        }
+        body.mobile-layout .languages {
+            gap: 10px;
+        }
+        .lang-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 13.5px;
+            font-weight: 600;
+        }
+        .lang-tag-en-fa {
+            color: #9bb59c;
+        }
+        .lang-tag-tr {
+            color: #d1b084;
+        }
+        .lang-detail {
+            font-size: 11px;
+            font-weight: 400;
+            color: #6b7280;
+            margin-left: 2px;
+        }
+        body.mobile-layout .lang-detail {
+            font-size: 12px;
+        }
+        .social-row {
+            display: flex;
+            gap: 12px;
+        }
+        body.mobile-layout .social-row {
+            justify-content: center;
+            width: 100%;
+            margin-top: 5px;
+        }
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1c2030;
+            border: 1px solid #2a3147;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+        .social-btn:hover {
+            background-color: #23283c;
+            border-color: #38425f;
+        }
+        body.desktop-layout .stats-panel {
+            grid-column: 1;
+            grid-row: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        body.mobile-layout .stats-panel {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            padding: 0 !important;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            width: 100%;
+        }
+        .stats-card {
+            background: #1c2030;
+            border: 1px solid #2a3147;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: border-color 0.2s ease;
+        }
+        body.desktop-layout .stats-card {
+            flex: 1;
+        }
+        body.mobile-layout .stats-card {
+            flex: 1;
+            padding: 15px 10px;
+            background: #161924;
+            border: 1px solid #232838;
+        }
+        .stats-card:hover {
+            border-color: #3c4663;
+        }
+        .stats-num {
+            font-size: 38px;
+            font-weight: 800;
+            color: #d1b084;
+        }
+        body.mobile-layout .stats-num {
+            font-size: 28px;
+        }
+        .stats-label {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+            font-weight: 500;
+        }
+        body.mobile-layout .stats-label {
+            font-size: 11px;
+        }
+        body.desktop-layout .experience-panel {
+            grid-column: 2;
+            grid-row: 2;
+            overflow-y: hidden;
+        }
+        .experience-panel h2 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        body.desktop-layout .experience-grid {
+            height: calc(100% - 45px);
+        }
+        body.mobile-layout .experience-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        .exp-card {
+            background: #1c2030;
+            border: 1px solid #2a3147;
+            border-left: 3px solid #d1b084;
+            padding: 10px 16px;
+            border-radius: 4px 8px 8px 4px;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        body.desktop-layout .exp-card {
+            height: 100%;
+        }
+        .exp-card:hover {
+            background-color: #23283c;
+            border-color: #38425f;
+            border-left-color: #e2d4be;
+        }
+        .exp-role {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        body.mobile-layout .exp-role {
+            font-size: 16px;
+        }
+        .exp-company {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+        body.mobile-layout .exp-company {
+            font-size: 13.5px;
+            margin-top: 2px;
+        }
+        .exp-tags {
+            font-size: 11px;
+            color: #d1b084;
+            margin-top: 4px;
+            letter-spacing: 0.3px;
+            font-weight: 500;
+        }
+        body.mobile-layout .exp-tags {
+            font-size: 11.5px;
+        }
+        body.desktop-layout .tech-stack-panel {
+            grid-column: 3;
+            grid-row: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .tech-stack-panel h2 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hero-tech-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .hero-tech-card {
+            flex: 1;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #2a3147;
+            background: #1c2030;
+            transition: border-color 0.2s ease;
+        }
+        .hero-tech-card:hover {
+            border-color: #38425f;
+        }
+        .hero-tech-card i {
+            font-size: 36px;
+        }
+        .hero-tech-card span {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .tech-divider {
+            height: 1px;
+            background: #232838;
+            margin: 12px 0;
+        }
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        body.mobile-layout .tech-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .tech-item {
+            background: #1c2030;
+            border: 1px solid #2a3147;
+            border-radius: 8px;
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: border-color 0.2s ease;
+        }
+        .tech-item:hover {
+            border-color: #38425f;
+        }
+        .tech-item i {
+            font-size: 16px;
+        }
+        .tech-item span {
+            font-size: 12px;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+        body.mobile-layout .tech-item span {
+            font-size: 13px;
+        }
+        .supporting-tags-container {
+            display: flex;
+            flex-wrap: wrap !important;
+            gap: 6px;
+        }
+        .support-tag {
+            font-size: 10px;
+            background: #1c2030;
+            border: 1px solid #2a3147;
+            border-radius: 4px;
+            padding: 3px 6px;
+            color: #cbd5e1;
+            font-weight: 500;
+            transition: border-color 0.2s ease;
+        }
+        .support-tag:hover {
+            border-color: #38425f;
+        }
+        body.desktop-layout .education-panel {
+            grid-column: 1;
+            grid-row: 3;
+        }
+        .education-panel h2 {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .edu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .edu-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .edu-bullet {
+            color: #d1b084;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+        .edu-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .edu-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        body.mobile-layout .edu-title {
+            font-size: 15px;
+        }
+        .edu-sub {
+            font-size: 11px;
+            color: #cbd5e1;
+            margin-top: 2px;
+        }
+        body.mobile-layout .edu-sub {
+            font-size: 12.5px;
+        }
+        body.desktop-layout .milestones-panel {
+            grid-column: 2;
+            grid-row: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .milestones-panel h2 {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        body.desktop-layout .milestones-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            padding-top: 15px;
+            margin-bottom: 10px;
+        }
+        body.desktop-layout .milestones-container::before {
+            content: '';
+            position: absolute;
+            top: 55px;
+            left: 50px;
+            right: 50px;
+            height: 2px;
+            background: #232838;
+            z-index: 1;
+        }
+        body.desktop-layout .milestone-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        body.desktop-layout .milestone-year {
+            font-size: 13px;
+            font-weight: 800;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+        }
+        body.desktop-layout .milestone-icon-wrapper {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #1c2030;
+            border: 1px solid #2a3147;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        body.desktop-layout .milestone-content {
+            font-size: 11.5px;
+            color: #cbd5e1;
+            line-height: 1.4;
+            max-width: 180px;
+            font-weight: 500;
+        }
+        body.mobile-layout .milestones-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+            padding-left: 50px;
+        }
+        body.mobile-layout .milestones-container::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            bottom: 5px;
+            left: 18px;
+            width: 2px;
+            border-left: 2px dashed #232838;
+        }
+        body.mobile-layout .milestone-item {
+            position: relative;
+        }
+        body.mobile-layout .milestone-icon-wrapper {
+            position: absolute;
+            left: -48px;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #1c2030;
+            border: 1px solid #2a3147;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        body.mobile-layout .milestone-year {
+            font-size: 12px;
+            font-weight: 800;
+            color: #cbd5e1;
+            margin-bottom: 4px;
+        }
+        body.mobile-layout .milestone-content {
+            font-size: 13.5px;
+            color: #f1f5f9;
+        }
+        body.desktop-layout .values-panel {
+            grid-column: 3;
+            grid-row: 3;
+        }
+        .values-panel h2 {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        .value-tag {
+            background: #1c2030;
+            border: 1px solid #2a3147;
+            border-radius: 8px;
+            padding: 12px 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: border-color 0.2s ease;
+        }
+        .value-tag:hover {
+            border-color: #38425f;
+        }
+        .star-icon {
+            color: #d1b084;
+            font-size: 14px;
+        }
+        .value-tag span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+        body.mobile-layout .value-tag span {
+            font-size: 14px;
+        }
+        .toggle-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #1c2030;
+            border: 1px solid #2a3147;
+            color: #ffffff;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 9999;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+        .toggle-btn:hover {
+            background-color: #23283c;
+            border-color: #38425f;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="canvas">
+
+        <div class="panel header-panel">
+            <div class="header-left">
+                <h1>AREF BAHRAMI</h1>
+                <div class="subtitle">Lead Software Developer &amp; Game Producer</div>
+            </div>
+            <div class="header-right">
+                <div class="contact-info">
+                    <a href="mailto:arefbahrami1996@gmail.com" class="email-link">
+                        <i class="fa-solid fa-envelope" style="color: #bd6c6c;"></i> arefbahrami1996@gmail.com
+                    </a>
+                    <div class="languages">
+                        <i class="fa-solid fa-language" style="color: #869bb3;"></i> 
+                        <span class="lang-tag lang-tag-en-fa">English <span class="lang-detail">(Read, Write, Speak)</span></span> • 
+                        <span class="lang-tag lang-tag-en-fa">Persian <span class="lang-detail">(Read, Write, Speak)</span></span> • 
+                        <span class="lang-tag lang-tag-tr">Turkish <span class="lang-detail">(Speak)</span></span>
+                    </div>
+                </div>
+                <div class="social-row">
+                    <a href="https://www.linkedin.com/in/aref-bahrami-11a8b4158/" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin-in" style="color: #5a8fa8;"></i></a>
+                    <a href="https://github.com/arefbahrami1996" target="_blank" class="social-btn"><i class="fa-brands fa-github" style="color: #94a3b8;"></i></a>
+                    <a href="https://www.instagram.com/arefbahrami1996/" target="_blank" class="social-btn"><i class="fa-brands fa-instagram" style="color: #c77c8e;"></i></a>
+                    <a href="https://t.me/arefbahrami1996" target="_blank" class="social-btn"><i class="fa-brands fa-telegram" style="color: #659dbd;"></i></a>
+                    <a href="https://wa.me/arefbahrami1996" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp" style="color: #6ca880;"></i></a>
+                    <a href="mailto:arefbahrami1996@gmail.com" class="social-btn"><i class="fa-solid fa-envelope" style="color: #bd6c6c;"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel stats-panel" id="stats-panel">
+            <div class="stats-card">
+                <div class="stats-num">14+</div>
+                <div class="stats-label">Years Exp</div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-num">15+</div>
+                <div class="stats-label">Published Games</div>
+            </div>
+            <div class="stats-card">
+                <div class="stats-num">6</div>
+                <div class="stats-label">National Awards</div>
+            </div>
+        </div>
+
+        <div class="panel experience-panel">
+            <h2><i class="fa-solid fa-briefcase" style="color: #d1b084;"></i> EXPERIENCE</h2>
+            <div class="experience-grid">
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">Programming Lead</span>
+                    </div>
+                    <div class="exp-company">Rabin Consulting Group</div>
+                    <div class="exp-tags">C# • Unity • Systems Architecture</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">VR/AR Project Manager</span>
+                    </div>
+                    <div class="exp-company">ACECR (National Skills Univ.)</div>
+                    <div class="exp-tags">Unity VR/AR • Mixed Reality • Instructional Systems</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">Game Dev Lead</span>
+                    </div>
+                    <div class="exp-company">Mazandaran Science &amp; Tech Park</div>
+                    <div class="exp-tags">Leadership • Game Engineering • Agile Pipelines</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">Technical Judge</span>
+                    </div>
+                    <div class="exp-company">MCI (Hamrah-e-Avval) Hackathons</div>
+                    <div class="exp-tags">System Diagnostics • Project Benchmarking</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">Indie &amp; Corp Publisher</span>
+                    </div>
+                    <div class="exp-company">Kids, Casual &amp; Hyper-Casual Games</div>
+                    <div class="exp-tags">Market Research • Release Pipelines • Monetization</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">AR/VR &amp; RenderMan Dev</span>
+                    </div>
+                    <div class="exp-company">Anim Star | Sacred Defense Museum</div>
+                    <div class="exp-tags">Shader Programming • Spatial Interaction • RenderMan</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">Technical Instructor</span>
+                    </div>
+                    <div class="exp-company">Unity &amp; Django Programming</div>
+                    <div class="exp-tags">Advanced C# • Python Frameworks • Architecture</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <span class="exp-role">Inspection Intern</span>
+                    </div>
+                    <div class="exp-company">Zanjan Electricity Board</div>
+                    <div class="exp-tags">Systems Control • Operations Safety</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel tech-stack-panel">
+            <h2><i class="fa-solid fa-code" style="color: #d1b084;"></i> TECH STACK</h2>
+            <div>
+                <div class="hero-tech-container">
+                    <div class="hero-tech-card">
+                        <i class="devicon-csharp-plain colored"></i>
+                        <span>C#</span>
+                    </div>
+                    <div class="hero-tech-card">
+                        <i class="devicon-unity-original" style="color: #cbd5e1;"></i>
+                        <span>Unity</span>
+                    </div>
+                </div>
+                <div class="tech-divider"></div>
+                <div class="tech-grid">
+                    <div class="tech-item"><i class="devicon-flutter-plain colored"></i> <span>Flutter</span></div>
+                    <div class="tech-item"><i class="devicon-python-plain colored"></i> <span>Python</span></div>
+                    <div class="tech-item"><i class="devicon-django-plain colored"></i> <span>Django</span></div>
+                    <div class="tech-item"><i class="devicon-php-plain colored"></i> <span>PHP</span></div>
+                    <div class="tech-item"><i class="devicon-sqlite-plain colored"></i> <span>SQL</span></div>
+                    <div class="tech-item"><i class="devicon-html5-plain colored"></i> <span>HTML/CSS</span></div>
+                    <div class="tech-item"><i class="devicon-dart-plain colored"></i> <span>Dart</span></div>
+                    <div class="tech-item"><i class="devicon-git-plain colored"></i> <span>Git</span></div>
+                    <div class="tech-item"><i class="devicon-photoshop-plain colored"></i> <span>Photoshop</span></div>
+                    <div class="tech-item"><i class="devicon-android-plain colored"></i> <span>Android</span></div>
+                </div>
+                <div class="supporting-tags-container">
+                    <span class="support-tag">Power BI</span>
+                    <span class="support-tag">Visual Basic</span>
+                    <span class="support-tag">SEO &amp; ASO</span>
+                    <span class="support-tag">Linux/Win</span>
+                    <span class="support-tag">WordPress</span>
+                    <span class="support-tag">API</span>
+                    <span class="support-tag">CCTV Setup</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel education-panel">
+            <h2><i class="fa-solid fa-graduation-cap" style="color: #d1b084;"></i> EDUCATION</h2>
+            <ul class="edu-list">
+                <li>
+                    <span class="edu-bullet"><i class="fa-solid fa-caret-right"></i></span>
+                    <div class="edu-content">
+                        <span class="edu-title">B.Sc. Software Engineering</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="edu-bullet"><i class="fa-solid fa-caret-right"></i></span>
+                    <div class="edu-content">
+                        <span class="edu-title">A.D. Electrical Power Eng.</span>
+                    </div>
+                </li>
+                <li>
+                    <span class="edu-bullet"><i class="fa-solid fa-caret-right"></i></span>
+                    <div class="edu-content">
+                        <span class="edu-title">6x Official Tech Certifications</span>
+                        <span class="edu-sub">TVTO: ICDL, Networking, Visual Basic</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="panel milestones-panel">
+            <h2><i class="fa-solid fa-flag" style="color: #d1b084;"></i> KEY MILESTONES</h2>
+            <div class="milestones-container">
+                <div class="milestone-item">
+                    <div class="milestone-year">2013</div>
+                    <div class="milestone-icon-wrapper">
+                        <i class="fa-solid fa-gamepad" style="color: #b07272;"></i>
+                    </div>
+                    <div class="milestone-content">Started Unity Game Dev, Virtual Tours &amp; Web</div>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-year">2016</div>
+                    <div class="milestone-icon-wrapper">
+                        <i class="fa-solid fa-mobile-screen-button" style="color: #7a8fa6;"></i>
+                    </div>
+                    <div class="milestone-content">Advanced Mobile Apps Development via Flutter</div>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-year">2019</div>
+                    <div class="milestone-icon-wrapper">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div class="milestone-content">Developed personal Custom Map-Based Job Platform</div>
+                </div>
+                <div class="milestone-item">
+                    <div class="milestone-year">2026</div>
+                    <div class="milestone-icon-wrapper">
+                        <i class="fa-solid fa-server" style="color: #8ea89d;"></i>
+                    </div>
+                    <div class="milestone-content">Adopted Django framework for web systems</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel values-panel">
+            <h2><i class="fa-solid fa-gem" style="color: #d1b084;"></i> CORE VALUES</h2>
+            <div class="values-grid">
+                <div class="value-tag">
+                    <i class="fa-solid fa-star star-icon"></i>
+                    <span>Shared Vision</span>
+                </div>
+                <div class="value-tag">
+                    <i class="fa-solid fa-star star-icon"></i>
+                    <span>Agile Execution</span>
+                </div>
+                <div class="value-tag">
+                    <i class="fa-solid fa-star star-icon"></i>
+                    <span>Highest Quality</span>
+                </div>
+                <div class="value-tag">
+                    <i class="fa-solid fa-star star-icon"></i>
+                    <span>Team Synergy</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <button id="layout-toggle" class="toggle-btn">
+        <i class="fa-solid fa-mobile-alt"></i>
+    </button>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const toggleBtn = document.getElementById('layout-toggle');
+        let isManualMode = false;
+        let currentMode = '';
+
+        function determineLayout() {
+            if (isManualMode) return;
+            const isDesktop = window.innerWidth > 1024 && window.innerWidth > window.innerHeight;
+            setLayout(isDesktop ? 'desktop' : 'mobile');
+        }
+
+        function setLayout(mode) {
+            currentMode = mode;
+            if (mode === 'desktop') {
+                document.body.className = 'desktop-layout';
+                toggleBtn.innerHTML = '<i class="fa-solid fa-mobile-alt"></i>';
+                scaleCanvas();
+            } else {
+                document.body.className = 'mobile-layout';
+                toggleBtn.innerHTML = '<i class="fa-solid fa-desktop"></i>';
+                resetCanvas();
+            }
+        }
+
+        function scaleCanvas() {
+            if (currentMode !== 'desktop') return;
+            const baseWidth = 1920;
+            const baseHeight = 1080;
+            const winWidth = window.innerWidth;
+            const winHeight = window.innerHeight;
+            const scaleX = winWidth / baseWidth;
+            const scaleY = winHeight / baseHeight;
+            const scale = Math.min(scaleX, scaleY);
+            canvas.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+            canvas.style.position = 'absolute';
+            canvas.style.top = '50%';
+            canvas.style.left = '50%';
+        }
+
+        function resetCanvas() {
+            canvas.style.transform = '';
+            canvas.style.position = '';
+            canvas.style.top = '';
+            canvas.style.left = '';
+            const panels = document.querySelectorAll('.panel');
+            panels.forEach(p => {
+                p.style.transform = '';
+            });
+        }
+
+        toggleBtn.addEventListener('click', function() {
+            isManualMode = true;
+            if (currentMode === 'desktop') {
+                setLayout('mobile');
+            } else {
+                setLayout('desktop');
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (!isManualMode) {
+                determineLayout();
+            } else if (currentMode === 'desktop') {
+                scaleCanvas();
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', determineLayout);
+    </script>
+</body>
+</html>
