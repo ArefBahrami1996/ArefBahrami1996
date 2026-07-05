@@ -8,3 +8,4 @@ I am a Lead Software Developer and Game Producer with over 14 years of experienc
 Key Achievements: 15+ Published Games, 6 National Awards.
 Core Competencies: C#, Unity, Flutter, Python, Django, Systems Architecture, and Interactive Instruction.
 Languages: English (Read, Write, Speak) • Persian (Read, Write, Speak) • Turkish (Speak).
+Profile View: https://arefbahrami1996.github.io/ArefBahrami1996/
